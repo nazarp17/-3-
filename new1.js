@@ -1,7 +1,7 @@
 // завдання 1:оголошення змінних з різними типами даних
 let integerNumber = 10;   
 let floatNumber = 5.5; 
-let text = "Hello";       
+let text = "Слава Україні";       
 let isTrue = true;        
 
 console.log("Початкові значення:");
