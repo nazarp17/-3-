@@ -1,147 +1,49 @@
-// 1 завдання: перевірка віку
-let age = prompt("Введіть ваш вік:");
 
-if (age !== null) {
-    age = Number(age);
+const users = [
+    { name: "Йосип", age: 14 },
+    { name: "Василь", age: 17 },
+    { name: "Юсуф", age: 30 },
+    { name: "Іфпатій", age: 19 },
+    { name: "Абдурахмат", age: 28 }
+];
 
-    if (isNaN(age)) {
-        alert("Введіть коректне число.");
-    } else if (age < 18) {
-        alert("Вам заборонено вхід.");
-    } else if (age >= 18 && age <= 60) {
-        alert("Ласкаво просимо!");
-    } else {
-        alert("Ви надто старі, час на пенсію!");
-    }
-} else {
-    alert("Введення скасовано.");
-}
+const adultUsers = users.filter(user => user.age > 18);
 
-// 2 завдання: введення парних чисел і їх даних
-let n = prompt("Введіть число n");
 
-if (n !== null) {
-    n = Number(n);
+const userNames = users.map(user => user.name);
 
-    if (isNaN(n) || n < 2) {
-        console.log(" введіть коректне число більше або рівне 2.");
-    } else {
-        console.log(`Парні числа від 2 до ${n}:`);
-        for (let i = 2; i <= n; i += 2) {
-            console.log(i);
-        }let age = prompt("Введіть ваш вік:");
+//  середній вік 
+const averageAge = users.reduce((sum, user) => sum + user.age, 0) / users.length;
 
-        if (age !== null) {
-            age = Number(age);
-        
-            if (isNaN(age)) {
-                alert("Введіть коректне число.");
-            } else if (age < 18) {
-                alert("Вам заборонено вхід.");
-            } else if (age >= 18 && age <= 60) {
-                alert("Ласкаво просимо!");
-            } else {
-                alert("Ви надто старі, час на пенсію!))");
-            }
-        } else {
-            alert("Введення скасовано.");
-        }
-        
-    }
-} else {
-}
- {
-console.log("Введення числа")
- }
+// результат
+console.log("Користувачі старше 18 років:", adultUsers);
+console.log("Масив імен користувачів:", userNames);
+console.log("Середній вік користувачів:", averageAge.toFixed(2));
 
-// 3 завдання: обчислення факторіалу числа 
-let num = prompt("Введіть число для обчислення факторіалу:");
 
-if (num !== null) {
-    num = Number(num);
+/* 
+                                                 Контрольні запитання
 
-    if (isNaN(num) || num < 0) {
-        console.log("Будь ласка, введіть коректне невід'ємне число.");
-    } else {
-        let factorial = 1;
-        let i = 1;
 
-        while (i <= num) {
-            factorial *= i;
-            i++;
-        }
-
-        console.log(`Факторіал числа ${num} дорівнює ${factorial}`);
-    }
-} else {
-    console.log("Введення скасовано.");
-}
-// 4 завдання: калькулейтет
-let a = prompt("Введіть перше число:");
-let b = prompt("Введіть друге число:");
-let operation = prompt("Введіть операцію (+, -, *, /):");
-
-if (a !== null && b !== null && operation !== null) {
-    a = Number(a);
-    b = Number(b);
-
-    if (isNaN(a) || isNaN(b)) {
-        alert("Будь ласка, введіть коректні числа.");
-    } else {
-        let result;
-
-        switch (operation) {
-            case "+":
-                result = a + b;
-                break;
-            case "-":
-                result = a - b;
-                break;
-            case "*":
-                result = a * b;
-                break;
-            case "/":
-                if (b !== 0) {
-                    result = a / b;
-                } else {
-                    alert("Ділення на нуль неможливе!");
-                    result = "Помилка";
-                }
-                break;
-            default:
-                alert("Невідома операція!");
-                result = "Помилка";
-        }
-
-        alert(`Результат: ${result}`);
-    }
-} else {
-    alert("Введення скасовано.");
-}
-// 5 завдання: 
-const secretNumber = Math.floor(Math.random() * 100) + 1; 
-let guess;
-let attempts = 0;
-
-do {
-    guess = prompt("Вгадайте число від 1 до 100:");
-    
-    if (guess === null) {
-        alert("Гру скасовано.");
-        break;
-    }
-
-    guess = Number(guess);
-    attempts++;
-
-    if (isNaN(guess) || guess < 1 || guess > 100) {
-        alert("Будь ласка, введіть число від 1 до 100.");
-    } else if (guess < secretNumber) {
-        alert("Загадане число більше.");
-    } else if (guess > secretNumber) {
-        alert("Загадане число менше.");
-    } else {
-        alert(`Вітаємо! Ви вгадали число ${secretNumber} за ${attempts} спроб.`);
-        break;
-    }
-} while (true);
+1.Основні методи роботи з масивами:
+ • push(), pop(), shift(), unshift() – додавання/видалення елементів
+ • map() – створює новий масив
+ • filter() – фільтрує елементи
+ • reduce() – обчислює значення на основі масиву
+ • sort() – сортує масив
+ • forEach() – виконує дію для кожного елемента
+ 2.Фільтрація масиву: 
+    .const users = [{name: "Йосип", age: 25}, {name: "Йосипе", age: 17}];
+    const adults = users.filter(user => user.age >= 18);
+    console.log(adults);
+3.Сортування масиву:
+    .const numbers = [5, 2, 8, 1];
+    numbers.sort((a, b) => a - b); // [1, 2, 5, 8]
+4.Отримання ключів та значень об'єкта
+    const user = {name: "Петрик", age: 25};
+    console.log(Object.keys(user));   // ["name", "age"]
+    console.log(Object.values(user)); // ["Петрик", 25]
+5.Обчислення середнього арифметичного:
+    const numbers = [10, 20, 30];
+    const avg = numbers.reduce((sum, num) => sum + num, 0) / numbers.length;
+    console.log(avg); //20 */ 
