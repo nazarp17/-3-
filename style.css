@@ -1,0 +1,45 @@
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+.calculator {
+    display: inline-block;
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    font-size: 18px;
+}
+
+.buttons {
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#history {
+    list-style: none;
+    padding: 0;
+}
+
+#history li {
+    background: #ddd;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}

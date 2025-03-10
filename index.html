@@ -2,82 +2,36 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Домашні завдання</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розширений калькулятор</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script>
-        // завдання 1 FizzBuzz --> 
-        function fizzBuzz() {
-            let result = "";
-            for (let i = 1; i <= 100; i++) {
-                if (i % 3 === 0 && i % 5 === 0) {
-                    result += "FizzBuzz, ";
-                } else if (i % 3 === 0) {
-                    result += "Fizz, ";
-                } else if (i % 5 === 0) {
-                    result += "Buzz, ";
-                } else {
-                    result += i + ", ";
-                }
-            }
-            document.getElementById("fizzBuzzResult").innerText = result.slice(0, -2);
-        }
 
-        // завдання 2 Перевірка числа на простоту -->
-        function isPrime(n) { 
-            if (n < 2) return false; 
-            for (let i = 2; i <= Math.sqrt(n); i++) {
-                if (n % i === 0) return false;
-            }
-            return true;
-        }
+    <h1>Розширений калькулятор</h1>
 
-        function checkPrime() {
-            let num = document.getElementById("primeInput").value;
-            let result = isPrime(Number(num)) ? "Число просте" : "Число не є простим";
-            document.getElementById("primeResult").innerText = result;
-        }
+    <div class="calculator">
+        <input type="number" id="num1" placeholder="Введіть число 1">
+        <input type="number" id="num2" placeholder="Введіть число 2">
 
-        // завдання 3 таблиця множення -->
-        function generateMultiplicationTable() {
-            let num = document.getElementById("multiplicationInput").value;
-            let result = "";
-            for (let i = 1; i <= 10; i++) {
-                result += `${num} x ${i} = ${num * i}<br>`;
-            }
-            document.getElementById("multiplicationResult").innerHTML = result;
-        }
+        <div class="buttons">
+            <button data-op="+">+</button>
+            <button data-op="-">-</button>
+            <button data-op="*">*</button>
+            <button data-op="/">/</button>
+            <button data-op="%">%</button>
+            <button data-op="^">^</button>
+            <button data-op="√">√</button>
+        </div>
 
-        // завдання 4 обчислення факторіалу
-        function factorial(n) {
-            if (n === 0) return 1;
-            let fact = 1;
-            for (let i = 1; i <= n; i++) {
-                fact *= i;
-            }
-            return fact;
-        }
+        <h2>Результат: <span id="result">---</span></h2>
 
-        function calculateFactorial() {
-            let num = document.getElementById("factorialInput").value;
-            let result = factorial(Number(num));
-            document.getElementById("factorialResult").innerText = `Факторіал: ${result}`;
-        }
+        <h3>Історія обчислень:</h3>
+        <ul id="history"></ul>
+        <button id="clearHistory">Очистити історію</button>
+    </div>
 
-        // завдання 5 пошук максимуму та мінімуму в масиві
-        function findMinMax() {
-            let input = document.getElementById("arrayInput").value;
-            let numbers = input.split(",").map(Number);
-            
-            if (numbers.length === 0 || numbers.some(isNaN)) {
-                document.getElementById("minMaxResult").innerText = "Помилка: введіть коректні числа!";
-                return;
-            }
+    <script src="script.js"></script>
 
-            let max = Math.max(...numbers);
-            let min = Math.min(...numbers);
-            document.getElementById("minMaxResult").innerText = `Максимум: ${max}, Мінімум: ${min}`;
-        }
-    </script>
 </body>
 </html>
